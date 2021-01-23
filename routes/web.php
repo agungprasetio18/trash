@@ -22,10 +22,12 @@ Route::middleware('auth')->group(function(){
 
     Route::prefix('type')->name('type.')->group(function(){
         Route::view('/', 'type')->name('index');
+        Route::post('/search', 'TypeController@search')->name('search');
     });
 
     Route::prefix('village')->name('village.')->group(function(){
         Route::view('/', 'village')->name('index');
+        Route::post('/search', 'VillageController@search')->name('search');
     });
 
 
