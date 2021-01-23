@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('type.index')}}" class="brand-link">
         <img src="{{ asset('admin/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Sampah</span>
@@ -14,7 +14,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('home')}}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -25,8 +25,16 @@
                 <li class="nav-header">Data Master</li>
 
                 <li class="nav-item">
-                    <a href="#"
-                        class="nav-link">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Operator
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('type.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tipe
@@ -35,7 +43,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('village.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Desa

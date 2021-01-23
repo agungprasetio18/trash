@@ -19,6 +19,17 @@ Route::middleware('auth')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::post('/logout', 'Auth\AuthController@logout')->name('logout');
+
+    Route::prefix('type')->name('type.')->group(function(){
+        Route::view('/', 'type')->name('index');
+    });
+
+    Route::prefix('village')->name('village.')->group(function(){
+        Route::view('/', 'village')->name('index');
+    });
+
+
+    
     
 });
 
