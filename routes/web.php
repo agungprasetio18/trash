@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/logout', 'Auth\AuthController@logout')->name('logout');
 
+    Route::post('/user/datatables', 'UserController@datatables')->name('user.datatables');
+
     Route::prefix('type')->name('type.')->group(function(){
         Route::view('/', 'type')->name('index');
         Route::post('/search', 'TypeController@search')->name('search');
@@ -31,7 +33,7 @@ Route::middleware('auth')->group(function(){
     });
 
 
-    
+    Route::resource('user', 'UserController', ['expect' => ['show']]);
     
 });
 
