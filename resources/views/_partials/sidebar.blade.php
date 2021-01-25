@@ -25,7 +25,7 @@
                 <li class="nav-header">Data Master</li>
 
                 <li class="nav-item">
-                    <a href="{{route('user.index')}}" class="nav-link {{active('user')}}">
+                    <a href="{{route('user.index')}}" class="nav-link {{active('user', 'active', 'group')}}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Operator
@@ -52,7 +52,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('member.index')}}" class="nav-link {{active('member', 'active', 'group')}}" >
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Member

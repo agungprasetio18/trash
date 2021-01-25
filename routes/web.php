@@ -32,8 +32,14 @@ Route::middleware('auth')->group(function(){
         Route::post('/search', 'VillageController@search')->name('search');
     });
 
+    Route::prefix('member')->name('member.')->group(function (){
+		Route::post('/datatables', 'MemberController@datatables')->name('datatables');
+		Route::post('/search', 'MemberController@search')->name('search');
+	});
+
 
     Route::resource('user', 'UserController', ['expect' => ['show']]);
+    Route::resource('member', 'MemberController', ['except' => ['show']]);
     
 });
 

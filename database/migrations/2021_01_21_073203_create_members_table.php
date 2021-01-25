@@ -16,11 +16,9 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->date('birth_date');
-            $table->string('gender');
+            $table->enum('gender', ['Pria', 'Wanita']);
+            $table->string('phone');
             $table->text('address');
-            $table->string('rt');
-            $table->string('rw');
             $table->uuid('village_id');
             $table->uuid('created_by');
             $table->uuid('updated_by')->nullable();
