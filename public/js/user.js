@@ -17,11 +17,11 @@ $(function () {
 				data: 'email',
 				searchable: false
 			},
-			// {
-			// 	data: 'action',
-			// 	orderable: false,
-			// 	searchable: false,
-			// },
+			{
+				data: 'action',
+				orderable: false,
+				searchable: false,
+			},
 		]
 	})
 

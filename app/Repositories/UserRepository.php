@@ -14,7 +14,7 @@ class UserRepository {
     }
 
     public function get(){
-        return $this->model->select('name', 'email')->whereRole('operator')->get();
+        return $this->model->select('id','name', 'email')->whereRole('operator')->get();
     }
 }
 

@@ -20,15 +20,15 @@ class UserService {
 	public function getDatatables(): Object
 	{
 		$datatables = Datatables::of($this->repo->get())
-					// ->addIndexColumn()
-					// ->addColumn('action', function ($user)
-					// {
-					// 	return '
-					// 		<a href="#" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
-					// 		<button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i></button>
-					// 	';
-					// })
-					// ->rawColumns(['action'])
+					->addIndexColumn()
+					->addColumn('action', function ($user)
+					{
+						return '
+							<a href="'.route('user.edit', $user->id).'" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
+							<button class="btn btn-sm btn-danger delete"><i class="fa fa-trash"></i></button>
+						';
+					})
+					->rawColumns(['action'])
 					->make();
 
 		return $datatables;
@@ -36,4 +36,4 @@ class UserService {
 
 }
 
- ?>
+?>
