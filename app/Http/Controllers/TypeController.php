@@ -9,16 +9,18 @@ use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
-    protected $type;
+    protected $service;
+    protected $repo;
 
-    public function __construct(TypeService $service)
+    public function __construct(TypeService $service, TypeRepository $repo)
     {
-        $this->type = $service;
+        $this->service = $service;
+        $this->repo = $repo;
     }
 
-    public function search(Request $request, TypeRepository $type)
+    public function search(Request $request)
     {
-        return $type->search($request->name);
+        return $this->repo->search($request->name);
     }
 
     public function trash()
@@ -28,20 +30,37 @@ class TypeController extends Controller
 
     public function trashDatatables()
     {
-        return $this->type->getTrashDatatables();
+        return $this->service->getTrashDatatables();
     }
 
     public function restore($id)
     {
-        $this->type->restoreData($id);
+        $this->service->restoreData($id);
 
         return response()->json('Sukses Memulihkan Tipe');
     }
 
+    public function restoreAll()
+    {
+        $type = $this->repo->getTrash()->restore();
+
+        return response()->json("Sukses Memulihkan Semua Sampah Tipe");
+    }
+
     public function remove($id) 
     {
-        $this->type->removeData($id);
+        $this->service->removeData($id);
 
         return response()->json("Sukses Menghapus Selamanya");
     }
+
+    public function removeAll()
+    {
+        $this->repo->getTrash()->forceDelete();
+
+        return response()->json("Sukses Menghapus Semua Sampah Tipe");
+
+    }
+
+    
 }

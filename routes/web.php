@@ -31,12 +31,23 @@ Route::middleware('auth')->group(function(){
             Route::post('/datatables', 'TypeController@trashDatatables')->name('datatables');
             Route::post('/restore/{id}', 'TypeController@restore')->name('restore');
             Route::post('/remove/{id}', 'TypeController@remove')->name('remove');
+            Route::get('/restoreAll', 'TypeController@restoreAll')->name('restoreAll');
+            Route::get('/removeAll', 'TypeController@removeAll')->name('removeAll');
         });
     });
 
     Route::prefix('village')->name('village.')->group(function(){
-        Route::view('/', 'village')->name('index');
+        Route::view('/', 'village.index')->name('index');
         Route::post('/search', 'VillageController@search')->name('search');
+
+        Route::prefix('trash')->name('trash.')->group(function (){
+            Route::get('/', 'VillageController@trash')->name('index');
+            Route::post('/datatables', 'VillageController@trashDatatables')->name('datatables');
+            Route::post('/restore/{id}', 'VillageController@restore')->name('restore');
+            Route::post('/remove/{id}', 'VillageController@remove')->name('remove');
+            Route::get('/restoreAll', 'VillageController@restoreAll')->name('restoreAll');
+            Route::get('/removeAll', 'VillageController@removeAll')->name('removeAll');
+        });
     });
 
     Route::prefix('member')->name('member.')->group(function (){

@@ -67,16 +67,14 @@
                         <i class="nav-icon fas fa-trash-alt"></i>
                         <p>
                             Tipe
-                            <span class="badge badge-danger right">1</span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('village.trash.index')}}" class="nav-link {{active('village/trash')}}">
                         <i class="nav-icon fas fa-trash-alt"></i>
                         <p>
                             Desa
-                            <span class="badge badge-danger right">1</span>
                         </p>
                     </a>
                 </li>
@@ -86,7 +84,6 @@
                         <i class="nav-icon fas fa-trash-alt"></i>
                         <p>
                             Member
-                            <span class="badge badge-danger right">1</span>
                         </p>
                     </a>
                 </li>

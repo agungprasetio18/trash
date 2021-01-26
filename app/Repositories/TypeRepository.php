@@ -20,12 +20,12 @@ class TypeRepository {
 
     public function getTrash()
     {
-        return $this->type->select('id', 'name', 'price')->onlyTrashed()->get();
+        return $this->type->onlyTrashed()->get();
     }
 
     public function findTrash($id)
     {
-        return $this->type->select('id', 'name', 'price', 'deleted_by')->onlyTrashed()->find($id);
+        return $this->type->onlyTrashed()->find($id);
     }
 }
 
