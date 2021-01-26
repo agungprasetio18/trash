@@ -63,7 +63,7 @@
                 <li class="nav-header">Recycle Bin</li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('type.trash.index')}}" class="nav-link {{active('type/trash')}}">
                         <i class="nav-icon fas fa-trash-alt"></i>
                         <p>
                             Tipe

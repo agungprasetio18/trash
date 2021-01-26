@@ -23,8 +23,15 @@ Route::middleware('auth')->group(function(){
     Route::post('/user/datatables', 'UserController@datatables')->name('user.datatables');
 
     Route::prefix('type')->name('type.')->group(function(){
-        Route::view('/', 'type')->name('index');
+        Route::view('/', 'type.index')->name('index');
         Route::post('/search', 'TypeController@search')->name('search');
+
+        Route::prefix('trash')->name('trash.')->group(function (){
+            Route::get('/', 'TypeController@trash')->name('index');
+            Route::post('/datatables', 'TypeController@trashDatatables')->name('datatables');
+            Route::post('/restore/{id}', 'TypeController@restore')->name('restore');
+            Route::post('/remove/{id}', 'TypeController@remove')->name('remove');
+        });
     });
 
     Route::prefix('village')->name('village.')->group(function(){
