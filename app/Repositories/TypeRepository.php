@@ -15,7 +15,12 @@ class TypeRepository {
 
     public function search(string $name = null)
 	{
-        return $this->type->select('id', 'name')->where('name', 'like', '%'.$name.'%')->get();
+        return $this->type->select('id', 'name', 'price')->where('name', 'like', '%'.$name.'%')->get();
+    }
+
+    public function tangkap(string $id = null)
+    {
+        return $this->type->find($id);
     }
 
     public function getTrash()

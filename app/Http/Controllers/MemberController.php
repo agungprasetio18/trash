@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Village;
 use App\Models\Member;
 use App\Services\MemberService;
+use App\Repositories\MemberRepository;
 use App\Http\Requests\Member\CreateMember;
 use App\Http\Requests\Member\UpdateMember;
 
@@ -56,5 +57,10 @@ class MemberController extends Controller
     public function datatables(MemberService $member)
     {
         return $member->getDataTables();
+    }
+
+    public function search(Request $request, MemberRepository $member)
+    {
+        return $member->search($request->name);
     }
 }

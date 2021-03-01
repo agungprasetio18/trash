@@ -53,11 +53,16 @@ Route::middleware('auth')->group(function(){
     Route::prefix('member')->name('member.')->group(function (){
 		Route::post('/datatables', 'MemberController@datatables')->name('datatables');
 		Route::post('/search', 'MemberController@search')->name('search');
-	});
+    });
+    
+    // Route::prefix('transaction')->name('transaction.')->group(function (){
+        
+    // });
 
 
     Route::resource('user', 'UserController', ['expect' => ['show']]);
     Route::resource('member', 'MemberController', ['except' => ['show']]);
+    Route::resource('transaction', 'TransactionController', ['except' => ['show', 'edit', 'update']]);
     
 });
 

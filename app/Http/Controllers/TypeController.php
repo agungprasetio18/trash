@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\TypeRepository;
 use App\Services\TypeService;
+use App\Models\Type;
 
 use Illuminate\Http\Request;
 
@@ -21,6 +22,11 @@ class TypeController extends Controller
     public function search(Request $request)
     {
         return $this->repo->search($request->name);
+    }
+
+    public function ambil(Request $request)
+    {
+        return Type::find($request->id);
     }
 
     public function trash()

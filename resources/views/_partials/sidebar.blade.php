@@ -60,6 +60,18 @@
                     </a>
                 </li>
 
+                <li class="nav-header">App</li>
+
+                <li class="nav-item">
+                    <a href="{{route('transaction.index')}}" class="nav-link {{active('transaction', 'active', 'group')}}" >
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Transaction
+                        </p>
+                    </a>
+                </li>
+
+
                 <li class="nav-header">Recycle Bin</li>
 
                 <li class="nav-item">
